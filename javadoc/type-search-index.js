@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.company","l":"LiveSong"},{"p":"com.company","l":"Main"},{"p":"com.company","l":"Song"},{"p":"com.company","l":"SongList"},{"p":"com.company","l":"StudioSong"}]

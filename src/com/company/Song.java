@@ -2,6 +2,11 @@ package com.company;
 
 import java.util.Scanner;
 
+/**
+ * En abstrakt klass för en låt.
+ * @see StudioSong
+ * @see LiveSong
+ */
 public abstract class Song {
     private String name;
     private int length;
@@ -9,12 +14,24 @@ public abstract class Song {
     private String genre;
     private String album;
 
-    private static Scanner scan = new Scanner(System.in);
+    protected static Scanner scan = new Scanner(System.in);
 
+    /**
+     * Kontruktor för att skapa en låt från användaren.
+     * @see #initSong()
+     */
     public Song() {
         initSong();
     }
 
+    /**
+     * Kontruktor för att skapa en låt från parametrar.
+     * @param name Namn på låten.
+     * @param length Längden på låten i sekunder.
+     * @param band Bandet som gjort låten.
+     * @param genre Genren på låten.
+     * @param album Låtens album.
+     */
     public Song(String name, int length, String band, String genre, String album) {
         this.name = name;
         this.length = length;
@@ -23,32 +40,55 @@ public abstract class Song {
         this.album = album;
     }
 
+    /**
+     * Låter användaren fylla i låtens info.
+     */
     public void initSong() {
-        System.out.print("Namne: ");
-        String name = scan.nextLine();
+        System.out.print("Namn: ");
+        this.name = scan.nextLine();
 
-        /*System.out.print("Längd(sekunder): ");
-        int length = scan.nextInt();
-*/
+        System.out.print("Längd(sekunder): ");
+        try {
+            this.length = Integer.parseInt(scan.nextLine());
+        } catch (NumberFormatException e) {
+            this.length = 150;
+        }
+
         System.out.print("Band: ");
-        String band = scan.nextLine();
+        this.band = scan.nextLine();
 
         System.out.print("Genre: ");
-        String genre = scan.nextLine();
+        this.genre = scan.nextLine();
 
         System.out.print("Album: ");
-        String album = scan.nextLine();
+        this.album = scan.nextLine();
     }
 
+    /**
+     * Skriver ut all info om låten.
+     */
     public void showSong() {
-        System.out.println("Namn: " + name + "\n" +
-                "Längd: " + formatLength() + "\n" +
-                "Band: " + band + "\n" +
-                "Genre: " + genre + "\n" +
-                "Album: " + album);
+        System.out.print("Namn: " + name + ",\t" +
+                "Längd: " + formatLength() + ",\t" +
+                "Band: " + band + ",\t" +
+                "Genre: " + genre + ",\t" +
+                "Album: " + album + ",\t");
     }
 
+    /**
+     * Gör om sekunder till minuter och sekunder.
+     * @return
+     */
     private String formatLength() {
         return (int)Math.floor(length/60) + ":" + String.format("%02d", length%60);
+    }
+
+    /**
+     *
+     * @return Låtens namn.
+     */
+    @Override
+    public String toString() {
+        return name;
     }
 }
