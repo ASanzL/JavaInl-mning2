@@ -35,6 +35,7 @@ public class SongList {
     public void showList() {
         if(list.size() > 0) {
             for (int i = 0; i < list.size(); i++) {
+                System.out.print(i + " - ");
                 list.get(i).showSong();
             }
         } else {
@@ -45,10 +46,9 @@ public class SongList {
     /**
      * Ändrar en låt i listan om index finns
      * @param index Index på låten.
-     * @see SongList#editSong(int)
      */
     public void editSong(int index) {
-        if(index < 0 || index > list.size()) {
+        if(index < 0 || index > list.size()-1) {
             System.out.println("Ej gilltigt index");
             return;
         }
@@ -58,7 +58,6 @@ public class SongList {
     /**
      * Tar bort en låt i listan om index finns
      * @param index Index på låten.
-     * @see SongList#deleteSong(int)
      */
     public void deleteSong(int index) {
         if(index < 0 || index > list.size()) {

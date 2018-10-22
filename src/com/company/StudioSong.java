@@ -1,7 +1,7 @@
 package com.company;
 
 /**
- * Ärver från Song
+ * Ärver från {@link Song}
  */
 public class StudioSong extends Song {
     private String studio;

@@ -77,7 +77,7 @@ public abstract class Song {
 
     /**
      * Gör om sekunder till minuter och sekunder.
-     * @return
+     * @return Låt längd formaterad
      */
     private String formatLength() {
         return (int)Math.floor(length/60) + ":" + String.format("%02d", length%60);

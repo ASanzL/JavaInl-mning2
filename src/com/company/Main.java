@@ -38,10 +38,10 @@ public class Main {
                     showSongs();
                     break;
                 case 4:
-                    editSong(makeOption());
+                    editSong();
                     break;
                 case 5:
-                    deleteSong(makeOption());
+                    deleteSong();
                     break;
                 default:
                     quit = true;
@@ -58,7 +58,8 @@ public class Main {
                 "2 - Lägg till ny låt.\n" +
                 "3 - Visa alla låtar.\n" +
                 "4 - Ändra låt.\n" +
-                "5 - Ta bort låt.\n");
+                "5 - Ta bort låt.\n" +
+                "6 - Avsluta program");
     }
 
     /**
@@ -104,21 +105,21 @@ public class Main {
 
     /**
      * Ändra en låt
-     * @param index Index på låten i listan
+     * @see SongList#editSong(int)
      */
-    static void editSong(int index) {
+    static void editSong() {
         System.out.print("Låt nummer: ");
 
-        songList.editSong(index);
+        songList.editSong(makeOption());
     }
 
     /**
      * Ta bort en låt
-     * @param index Index på låten i listan
+     * @see SongList#deleteSong(int)
      */
-    static  void deleteSong(int index) {
+    static  void deleteSong() {
         System.out.print("Låt nummer: ");
 
-        songList.deleteSong(index);
+        songList.deleteSong(makeOption());
     }
 }
