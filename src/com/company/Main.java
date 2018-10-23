@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * Ger alternativ om att lägga till, visa, ändra och ta bort låtar i en lista.
+ * @author Andreas Sanz
  * @see SongList
  */
 public class Main {

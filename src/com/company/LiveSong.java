@@ -1,6 +1,7 @@
 package com.company;
 
 /**
+ * @author Andreas Sanz
  * Ärver från {@link Song}
  */
 public class LiveSong extends Song {
@@ -9,7 +10,15 @@ public class LiveSong extends Song {
     private int audienceNumber;
 
     public LiveSong() {
-        super();
+        initSong();
+    }
+
+    /**
+     * @see Song#initSong()
+     */
+    @Override
+    public void initSong() {
+        super.initSong();
 
         System.out.print("Plats: ");
         this.location = scan.nextLine();
@@ -28,6 +37,9 @@ public class LiveSong extends Song {
         this.audienceNumber = audienceNumber;
     }
 
+    /**
+     * @see Song#showSong()
+     */
     @Override
     public void showSong() {
         super.showSong();

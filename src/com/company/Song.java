@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * En abstrakt klass för en låt.
+ * @author Andreas Sanz
  * @see StudioSong
  * @see LiveSong
  */
@@ -17,15 +18,15 @@ public abstract class Song {
     protected static Scanner scan = new Scanner(System.in);
 
     /**
-     * Kontruktor för att skapa en låt från användaren.
+     * Konstruktor för att skapa en låt med användaren.
      * @see #initSong()
      */
     public Song() {
-        initSong();
+
     }
 
     /**
-     * Kontruktor för att skapa en låt från parametrar.
+     * Konstruktor för att skapa en låt från parametrar.
      * @param name Namn på låten.
      * @param length Längden på låten i sekunder.
      * @param band Bandet som gjort låten.
@@ -69,7 +70,7 @@ public abstract class Song {
      */
     public void showSong() {
         System.out.print("Namn: " + name + ",\t" +
-                "Längd: " + formatLength() + ",\t" +
+                "Längd: " + formatLength(length) + ",\t" +
                 "Band: " + band + ",\t" +
                 "Genre: " + genre + ",\t" +
                 "Album: " + album + ",\t");
@@ -77,9 +78,10 @@ public abstract class Song {
 
     /**
      * Gör om sekunder till minuter och sekunder.
+     * @param length Tiden i sekunder
      * @return Låt längd formaterad
      */
-    private String formatLength() {
+    private String formatLength(int length) {
         return (int)Math.floor(length/60) + ":" + String.format("%02d", length%60);
     }
 
