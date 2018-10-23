@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * En singleton klass som sparar objekt av typen Song i en arraylista
  * @author Andreas Sanz
- * @version 1.0
  * @see Song
  */
 
@@ -48,7 +47,7 @@ public class SongList {
      * @param index Index på låten.
      */
     public void editSong(int index) {
-        if(index < 0 || index > list.size()-1) {
+        if(indexIsValid(index)) {
             System.out.println("Ej gilltigt index");
             return;
         }
@@ -60,10 +59,19 @@ public class SongList {
      * @param index Index på låten.
      */
     public void deleteSong(int index) {
-        if(index < 0 || index > list.size()) {
+        if(indexIsValid(index)) {
             System.out.println("Ej gilltigt index");
             return;
         }
         System.out.println(list.remove(index) + " har raderats");
+    }
+
+    /**
+     *
+     * @param index index i listan
+     * @return Returnerar true om index är ett godkänt index i listan
+     */
+    private boolean indexIsValid(int index) {
+        return index < 0 || index > list.size()-1;
     }
 }

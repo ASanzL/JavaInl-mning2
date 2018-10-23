@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * En abstrakt klass för en låt.
+ * @author Andreas Sanz
  * @see StudioSong
  * @see LiveSong
  */
@@ -17,15 +18,15 @@ public abstract class Song {
     protected static Scanner scan = new Scanner(System.in);
 
     /**
-     * Kontruktor för att skapa en låt från användaren.
+     * Konstruktor för att skapa en låt med användaren.
      * @see #initSong()
      */
     public Song() {
-        initSong();
+
     }
 
     /**
-     * Kontruktor för att skapa en låt från parametrar.
+     * Konstruktor för att skapa en låt från parametrar.
      * @param name Namn på låten.
      * @param length Längden på låten i sekunder.
      * @param band Bandet som gjort låten.
