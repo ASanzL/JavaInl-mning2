@@ -70,7 +70,7 @@ public abstract class Song {
      */
     public void showSong() {
         System.out.print("Namn: " + name + ",\t" +
-                "Längd: " + formatLength() + ",\t" +
+                "Längd: " + formatLength(length) + ",\t" +
                 "Band: " + band + ",\t" +
                 "Genre: " + genre + ",\t" +
                 "Album: " + album + ",\t");
@@ -78,9 +78,10 @@ public abstract class Song {
 
     /**
      * Gör om sekunder till minuter och sekunder.
+     * @param length Tiden i sekunder
      * @return Låt längd formaterad
      */
-    private String formatLength() {
+    private String formatLength(int length) {
         return (int)Math.floor(length/60) + ":" + String.format("%02d", length%60);
     }
 
