@@ -20,13 +20,7 @@ public class Main {
         while (!quit) {
             System.out.print("Val: ");
             int option = 0;
-
-            try {
-                option = Integer.parseInt(scan.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Ej gilltigt val.\n");
-                option = 1;
-            }
+            option = makeOption();
 
             switch (option) {
                 case 1:
@@ -44,6 +38,12 @@ public class Main {
                 case 5:
                     deleteSong();
                     break;
+                case 6:
+                    addFavorite();
+                    break;
+                case 7:
+                    showFavorites();
+                    break;
                 default:
                     quit = true;
                     break;
@@ -60,7 +60,9 @@ public class Main {
                 "3 - Visa alla låtar.\n" +
                 "4 - Ändra låt.\n" +
                 "5 - Ta bort låt.\n" +
-                "6 - Avsluta program");
+                "6 - Lägg till favorit.\n" +
+                "7 - Visa alla favoriter.\n" +
+                "8 - Avsluta program.\n");
     }
 
     /**
@@ -87,7 +89,7 @@ public class Main {
      * Visar alla låtar i listan
      */
     static void showSongs() {
-        songList.showList();
+        songList.showAllSongs();
     }
 
     /**
@@ -118,9 +120,25 @@ public class Main {
      * Ta bort en låt
      * @see SongList#deleteSong(int)
      */
-    static  void deleteSong() {
+    static void deleteSong() {
         System.out.print("Låt nummer: ");
 
         songList.deleteSong(makeOption());
+    }
+
+    /**
+     * Lägg till favoritlåt.
+     */
+    static void addFavorite() {
+        System.out.print("Låt nummer: ");
+
+        songList.addFavorite(makeOption());
+    }
+
+    /**
+     * Visar favoritlåtar.
+     */
+    static void showFavorites() {
+        songList.showFavorites();
     }
 }

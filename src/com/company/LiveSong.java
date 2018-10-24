@@ -1,8 +1,8 @@
 package com.company;
 
 /**
- * @author Andreas Sanz
  * Ärver från {@link Song}
+ * @author Andreas Sanz
  */
 public class LiveSong extends Song {
 

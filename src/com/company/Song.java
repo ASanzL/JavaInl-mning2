@@ -14,6 +14,7 @@ public abstract class Song {
     private String band;
     private String genre;
     private String album;
+    private boolean isFavorite;
 
     protected static Scanner scan = new Scanner(System.in);
 
@@ -74,6 +75,14 @@ public abstract class Song {
                 "Band: " + band + ",\t" +
                 "Genre: " + genre + ",\t" +
                 "Album: " + album + ",\t");
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
     }
 
     /**

@@ -28,10 +28,11 @@ public class SongList {
     }
 
     /**
-     * Skriver ut alla låtar i listan
-     * @see SongList#showList()
+     * Skriver ut alla låtar i listan.
+     * @param list Lista att visa.
+     * @see Song#showSong()
      */
-    public void showList() {
+    private void showList(ArrayList<Song> list) {
         if(list.size() > 0) {
             for (int i = 0; i < list.size(); i++) {
                 System.out.print(i + " - ");
@@ -42,12 +43,36 @@ public class SongList {
         }
     }
 
+    public void showAllSongs() {
+        showList(list);
+    }
+
+    public void showFavorites() {
+        showList(getFavorites());
+    }
+
+    /**
+     * Hämtar alla låtar som är favoriter.
+     * @return Favoritlåtar i lista.
+     */
+    private ArrayList<Song> getFavorites() {
+        ArrayList<Song> list = new ArrayList<>();
+        if(this.list.size() > 0) {
+            for (int i = 0; i < this.list.size(); i++) {
+                if(this.list.get(i).isFavorite()) {
+                    list.add(this.list.get(i));
+                }
+            }
+        }
+        return list;
+    }
+
     /**
      * Ändrar en låt i listan om index finns
      * @param index Index på låten.
      */
     public void editSong(int index) {
-        if(indexIsValid(index)) {
+        if(!indexIsValid(index)) {
             System.out.println("Ej gilltigt index");
             return;
         }
@@ -55,11 +80,11 @@ public class SongList {
     }
 
     /**
-     * Tar bort en låt i listan om index finns
+     * Tar bort en låt i listan om index finns.
      * @param index Index på låten.
      */
     public void deleteSong(int index) {
-        if(indexIsValid(index)) {
+        if(!indexIsValid(index)) {
             System.out.println("Ej gilltigt index");
             return;
         }
@@ -67,11 +92,24 @@ public class SongList {
     }
 
     /**
+     * Lägger till en favoritlåt.
+     * @param index Index på låten.
+     */
+    public void addFavorite(int index) {
+        if(!indexIsValid(index)) {
+            System.out.println("Ej gilltigt index");
+            return;
+        }
+        list.get(index).setFavorite(true);
+    }
+
+
+    /**
      *
      * @param index index i listan
      * @return Returnerar true om index är ett godkänt index i listan
      */
     private boolean indexIsValid(int index) {
-        return index < 0 || index > list.size()-1;
+        return !(index < 0 || index > list.size()-1);
     }
 }
