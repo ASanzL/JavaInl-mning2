@@ -94,7 +94,7 @@ public class Main {
 
     /**
      * Låter användaren skriva ett tal
-     * @return Det tal användaren skriver in, om användaren inte skriver inte ett tal så returneras -1
+     * @return Det tal användaren skriver in, om användaren inte skriver ett tal så returneras -1
      */
     static int makeOption() {
         int option = -1;
