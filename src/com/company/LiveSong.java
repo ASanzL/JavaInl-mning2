@@ -5,7 +5,6 @@ package com.company;
  * @author Andreas Sanz
  */
 public class LiveSong extends Song {
-
     private String location;
     private int audienceNumber;
 

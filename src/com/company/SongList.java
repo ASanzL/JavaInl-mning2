@@ -103,7 +103,6 @@ public class SongList {
         list.get(index).setFavorite(true);
     }
 
-
     /**
      *
      * @param index index i listan
