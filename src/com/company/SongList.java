@@ -43,10 +43,18 @@ public class SongList {
         }
     }
 
+    /**
+     * Skriver ut alla låtar
+     * @see SongList#showList(ArrayList)
+     */
     public void showAllSongs() {
         showList(list);
     }
 
+    /**
+     * Skriver ut alla favoritlåtar
+     * @see SongList#showList(ArrayList) 
+     */
     public void showFavorites() {
         showList(getFavorites());
     }
