@@ -53,7 +53,7 @@ public class SongList {
 
     /**
      * Skriver ut alla favoritlåtar
-     * @see SongList#showList(ArrayList) 
+     * @see SongList#showList(ArrayList)
      */
     public void showFavorites() {
         showList(getFavorites());
